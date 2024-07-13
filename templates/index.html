@@ -10,14 +10,14 @@
     <div class="container">
         <h1>Find your EECS exam room</h1>
         <form id="inputForm" action="/process" method="POST">
-            <label for="room_data_text">Paste exam room table here:</label>
+            <label for="room_data_text">Paste the exam room table here:</label>
             <br>
             <textarea id="room_data_text" name="room_data_text" rows="10" cols="50"></textarea>
             <br><br>
             <label for="uniqname">Enter uniqname:</label>
             <input type="text" id="uniqname" name="uniqname">
             <br>
-            <button type="submit">Find my room</button>
+            <button type="submit">Find my room</button> <br>
         </form>
         {% if result %}
         <div id="output">
