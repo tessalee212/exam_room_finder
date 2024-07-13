@@ -2,8 +2,6 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Google Colab Python version of the given C++ code
-
 class Room:
     def __init__(self, room_name, uniq_start, uniq_end):
         self.room_name = room_name
@@ -13,7 +11,12 @@ class Room:
 def make_uppercase(lowercase):
     return lowercase.upper()
 
-def main():
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/process', methods=['POST'])
+def process():
     # Use the room_data_text defined in another cell
     global room_data_text  # Ensure this variable is accessible in this cell
     uniqname = input("Enter the uniqname to find: ")
