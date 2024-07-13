@@ -1,0 +1,7 @@
+# Ignore specific files and directories
+exam_room.cpp
+exam_room.exe
+Makefile
+room_names.txt
+.venv/
+exam_room.exe.dSYM/
