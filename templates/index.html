@@ -16,11 +16,12 @@
             <br><br>
             <label for="uniqname">Enter uniqname:</label>
             <input type="text" id="uniqname" name="uniqname">
+            <br>
             <button type="submit">Find my room</button>
         </form>
         {% if result %}
         <div id="output">
-            <h2>Result:</h2>
+            <h2>Your exam room:</h2>
             <p>{{ result }}</p>
         </div>
         {% endif %}
