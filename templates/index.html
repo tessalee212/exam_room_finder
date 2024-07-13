@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Web Page</title>
+    <meta name="viewport" content="width=device-width">
+    <title>EECS Exam Room Search</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Find your exam room</h1>
+        <h1>Find your EECS exam room</h1>
         <form id="inputForm" action="/process" method="POST">
-            <label for="room_data_text">Paste doc here:</label>
+            <label for="room_data_text">Paste exam room table here:</label>
+            <br>
             <textarea id="room_data_text" name="room_data_text" rows="10" cols="50"></textarea>
+            <br><br>
             <label for="uniqname">Enter uniqname:</label>
             <input type="text" id="uniqname" name="uniqname">
-            <button type="submit">Submit</button>
+            <button type="submit">Find my room</button>
         </form>
         {% if result %}
         <div id="output">
