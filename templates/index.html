@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function submitForm() {
+            // Get form data
+            var roomDataText = document.getElementById('room_data_text').value;
+            var uniqname = document.getElementById('uniqname').value;
+
+            // Construct request body
+            var formData = new FormData();
+            formData.append('room_data_text', roomDataText);
+            formData.append('uniqname', uniqname);
+
+            // Make POST request to server
+            fetch('/process', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Update output div with the response
+                document.getElementById('output').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            
+            // Prevent default form submission
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Find your exam room</h1>
+        <form id="inputForm" onsubmit="return submitForm()">
+            <label for="room_data_text">Paste doc here:</label><br>
+            <textarea id="room_data_text" name="room_data_text" rows="10" cols="50"></textarea><br>
+            <label for="uniqname">Enter uniqname:</label><br>
+            <input type="text" id="uniqname" name="uniqname"><br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="output">
+            <!-- Output will be displayed here -->
+        </div>
+    </div>
+</body>
+</html>
