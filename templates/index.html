@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EECS Exam Room Search</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function fillSampleData() {
+            const textarea = document.getElementById('room_data_text');
+            textarea.value = "BBB 1670 \n AAA - ANGFA \n BBB 1690 \n ANGFB - AQA \n DOW 1013 \n AQB - DANHA \n DOW 1005 \n DANHB - DYOP \n DOW 1010 \n DYOQ - GRAEA \n CHRYS 220 \n GRAEB - KCM \n DOW 1014 \n KCN - LIBA \n DOW 1017 \n LIBB - MATUA \n DOW 1018 \n MATUB - MMF \n DOW 1206 \n MMG - NICKPA \n GGBL 2153 \n NICKPB - OLJ \n EECS 1003 \n OLK - PRJ \n EECS 1005 \n PRK - RNB \n EECS 1200 \n RNC - SCA \n EECS 1012 \n SCB - SHATA \n EECS 1303 \n SHATB - STFA \n EECS 1311 \n STFB - TKADA \n EECS 1500 \n TKADB - YIEA \n DOW 2166 \n YIEB - ZHJA \n DOW 3150 \n ZHJB - ZZZ \n ";
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -12,11 +18,14 @@
         <form id="inputForm" action="/process" method="POST">
             <label for="room_data_text">Paste the exam room table here:</label>
             <br>
-            <textarea id="room_data_text" name="room_data_text" rows="10" cols="50"></textarea>
-            <br><br>
+            <textarea id="room_data_text" name="room_data_text" rows="10" cols="55"></textarea>
+            <div class="sample-button-container">
+                <button class="sample-button" onclick="fillSampleData()">Sample data</button>
+            </div>
+            <br>
             <label for="uniqname">Enter uniqname:</label>
             <input type="text" id="uniqname" name="uniqname">
-            <br>
+            <br><br>
             <button type="submit">Find my room</button> <br>
         </form>
         {% if result %}
