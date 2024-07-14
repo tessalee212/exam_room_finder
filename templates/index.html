@@ -15,14 +15,14 @@
 <body>
     <div class="container">
         <h1>Find your EECS exam room</h1>
+        <div class="sample-button-container">
+            <button class="sample-button" onclick="fillSampleData()">Sample data</button>
+        </div>
         <form id="inputForm" action="/process" method="POST">
             <label for="room_data_text">Paste the exam room table here:</label>
             <br>
             <textarea id="room_data_text" name="room_data_text" rows="10" cols="55"></textarea>
-            <div class="sample-button-container">
-                <button class="sample-button" onclick="fillSampleData()">Sample data</button>
-            </div>
-            <br>
+            <br><br>
             <label for="uniqname">Enter uniqname:</label>
             <input type="text" id="uniqname" name="uniqname">
             <br><br>
